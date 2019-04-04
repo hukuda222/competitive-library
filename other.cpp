@@ -1,8 +1,10 @@
-auto c = [](Pair l, Pair r) { return l.second < r.second; };
-auto c2 = [](Pair l, Pair r) { return l.second > r.second; };
+// pllは基本的にfirstが優先されるのでsecondを優先するときはこっちを使う
 
-priority_queue<Pair, vector<Pair>, decltype(c)> S(c);
+auto c = [](pll l, pll r) { return l.second < r.second; };
+auto c2 = [](pll l, pll r) { return l.second > r.second; };
+priority_queue<pll, vector<pll>, decltype(c)> S(c);
 
+//約数を全て列挙
 vector<ll> divisor(ll n) {
   vector<ll> ret;
   for (ll i = 1; i * i <= n; i++) {
@@ -15,7 +17,7 @@ vector<ll> divisor(ll n) {
   sort(begin(ret), end(ret));
   return (ret);
 }
-
+//素因数分解する
 map<ll, ll> prime_factor(ll n) {
   map<ll, ll> ret;
   for (ll i = 2; i * i <= n; i++) {
@@ -24,11 +26,15 @@ map<ll, ll> prime_factor(ll n) {
       n /= i;
     }
   }
-  if (n != 1)
+  //引数にretを入れてn回使う時用
+  if (n != 1 && ret.find(n) == ret.end())
     ret[n] = 1;
+  else if (n != 1)
+    ret[n] += 1;
   return ret;
 }
 
+//階乗
 ll factorial(ll n) {
   ll ans = 1;
   for (ll i = 2; i <= n; i++) {
@@ -37,6 +43,7 @@ ll factorial(ll n) {
   }
   return ans;
 }
+// 並べるやつ
 ll P(ll n, ll m) {
   ll ans = 1;
   for (ll i = m + 1; i <= n; i++) {
@@ -45,7 +52,7 @@ ll P(ll n, ll m) {
   }
   return ans;
 }
-
+// MODつきPOW
 ll MODPOW(ll n, ll m) {
   if (m == 0) {
     return 1;
@@ -57,8 +64,10 @@ ll MODPOW(ll n, ll m) {
   }
 }
 
+// コンビネーション(コンビネーションをたくさん計算する時は下のを使う)
 ll C(ll n, ll m) { return (P(n, n - m) * MODPOW(factorial(m), MOD - 2)) % MOD; }
 
+// a=a'c,b=b'cなので、LCM(a,b)=a*b/GCD(a,b)
 ll GCD(ll a, ll b) {
   if (b == 0)
     return a;
@@ -67,17 +76,12 @@ ll GCD(ll a, ll b) {
 
 // fはfactrial(事前に計算しておく)
 ll nCr(ll n, ll r) {
-  if (n < r) {
+  if (n < r)
     return 0LL;
-  }
-
-  if (r > n / 2LL) {
+  if (r > n / 2LL)
     r = n - r;
-  }
-
   ll res = (f[n] * MODPOW(f[n - r], MOD - 2LL)) % MOD;
   res = (res * MODPOW(f[r], MOD - 2LL)) % MOD;
-
   return res;
 }
 

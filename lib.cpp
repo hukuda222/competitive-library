@@ -21,10 +21,14 @@ using ll = long long int;
 using vl = vector<ll>;
 using vvl = vector<vector<ll>>;
 using vvvl = vector<vector<vector<ll>>>;
-using edge = struct {
-  int to;
-  int cost;
-};
+
+typedef pair<ll, ll> pll;
+bool paircomp(const pll &a, const pll &b) {
+  if (a.first == b.first)
+    return a.second < b.second;
+  return a.first < b.first;
+}
+
 #define REP(i, n) for (ll i = 0; i < (n); i++)
 #define RREP(i, n) for (ll i = (n)-1; i >= 0; i--)
 #define FOR(i, a, b) for (ll i = (a); i < (b); i++)
@@ -36,20 +40,14 @@ using edge = struct {
   std::distance(vec.begin(), std::max_element(vec.begin(), vec.end()))
 #define ARGMIN(vec)                                                            \
   std::distance(vec.begin(), std::min_element(vec.begin(), vec.end()))
-#define BITS(n, num) std::bitset<(n)>((num)).to_string()
 #define REV(T) greater<T>()
 #define PQ(T) priority_queue<T, vector<T>, greater<T>>
 #define VVL(a, b, c) vector<vector<ll>>(a, vector<ll>(b, c))
 #define VVVL(a, b, c, d)                                                       \
   vector<vector<vector<ll>>>(a, vector<vector<ll>>(b, vector<ll>(c, d)))
 #define SP(a) setprecision(a)
-
-typedef pair<ll, ll> pll;
-bool paircomp(const pll &a, const pll &b) {
-  if (a.first == b.first)
-    return a.second < b.second;
-  return a.first < b.first;
-}
+#define SQRT(a) sqrt((long double)(a))
+#define DPOW(a, b) pow((long double)(a), (long double)(b))
 
 ll POW(ll n, ll m) {
   if (m == 0) {

@@ -27,7 +27,7 @@ void shortestPath(const Graph &g, ll s, vector<Weight> &dist,
     if (prev[e.dst] != -1)
       continue;
     prev[e.dst] = e.src;
-    ALL(f, g[e.dst]) {
+    AUTO(f, g[e.dst]) {
       if (dist[f.dst] > e.weight + f.weight) {
         dist[f.dst] = e.weight + f.weight;
         Q.push(Edge(f.src, f.dst, e.weight + f.weight));
