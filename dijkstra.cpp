@@ -17,7 +17,7 @@ typedef vector<Array> Matrix;
 void shortestPath(const Graph &g, ll s, vector<Weight> &dist,
                   vector<ll> &prev) {
   ll n = g.size();
-  dist.assign(n, INF);
+  dist.assign(n, llINF);
   dist[s] = 0;
   prev.assign(n, -1);
   priority_queue<Edge> Q; // "e < f" <=> "e.weight > f.weight"

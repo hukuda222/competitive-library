@@ -28,7 +28,16 @@ bool paircomp(const pll &a, const pll &b) {
     return a.second < b.second;
   return a.first < b.first;
 }
-
+struct multi {
+  ll first;
+  ll second;
+  ll third;
+};
+bool multicomp(const multi &a, const multi &b) {
+  if (a.first == b.first)
+    return a.second < b.second;
+  return a.first < b.first;
+}
 #define REP(i, n) for (ll i = 0; i < (n); i++)
 #define RREP(i, n) for (ll i = (n)-1; i >= 0; i--)
 #define FOR(i, a, b) for (ll i = (a); i < (b); i++)
