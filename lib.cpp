@@ -7,6 +7,7 @@
 #include <map>
 #include <numeric>
 #include <queue>
+#include <regex>
 #include <set>
 #include <stack>
 #include <string>
@@ -57,6 +58,11 @@ bool multicomp(const multi &a, const multi &b) {
 #define SP(a) setprecision(a)
 #define SQRT(a) sqrt((long double)(a))
 #define DPOW(a, b) pow((long double)(a), (long double)(b))
+#define UNIQUE(vec)                                                            \
+  do {                                                                         \
+    sort(ALL((vec)));                                                          \
+    (vec).erase(std::unique(ALL((vec))), (vec).end());                         \
+  } while (0)
 
 ll POW(ll n, ll m) {
   if (m == 0) {

@@ -67,6 +67,8 @@ ll MODPOW(ll n, ll m) {
 // コンビネーション(コンビネーションをたくさん計算する時は下のを使う)
 ll C(ll n, ll m) { return (P(n, n - m) * MODPOW(factorial(m), MOD - 2)) % MOD; }
 
+ll H(ll n, ll m) { return C(n + m - 1, m); }
+
 // a=a'c,b=b'cなので、LCM(a,b)=a*b/GCD(a,b)
 ll GCD(ll a, ll b) {
   if (b == 0)
@@ -84,6 +86,7 @@ ll nCr(ll n, ll r) {
   res = (res * MODPOW(f[r], MOD - 2LL)) % MOD;
   return res;
 }
+ll nHr(ll n, ll m) { return nCr(n + m - 1, m); }
 
 //エラトステネスの篩(O(NloglogN))
 vector<bool> prime(1e5 + 1, true);
@@ -94,4 +97,22 @@ FOR(i, 2, (ll)pow(1e5, 0.5) + 1) {
   for (ll j = 2; j * i < 1e5 + 1; j++) {
     prime[i * j] = false;
   }
+}
+
+//最後の一個がdelimの場合は無視する
+vector<string> split(const string &s, char delim) {
+  vector<string> elems;
+  string item;
+  for (char ch : s) {
+    if (ch == delim) {
+      if (!item.empty())
+        elems.push_back(item);
+      item.clear();
+    } else {
+      item += ch;
+    }
+  }
+  if (!item.empty())
+    elems.push_back(item);
+  return elems;
 }
