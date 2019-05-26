@@ -116,3 +116,9 @@ vector<string> split(const string &s, char delim) {
     elems.push_back(item);
   return elems;
 }
+
+// LIS、最大増加部分列を求める
+// Dが考えたい数列
+// https://qiita.com/walk_to_work/items/378fd4d46d2067237c68
+REP(i, N) { *lower_bound(DP.begin(), DP.end(), D[i]) = D[i]; }
+cout << lower_bound(DP.begin(), DP.end(), llINF) - DP.begin() << endl;

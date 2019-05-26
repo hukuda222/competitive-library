@@ -14,8 +14,8 @@
 #include <vector>
 
 const int MOD = 1e9 + 7;
-const int iINF = 1000000000;
-const long long int llINF = 1000000000000000000;
+const int iINF = 2147483647;
+const long long int llINF = 9223372036854775807;
 
 using namespace std;
 using ll = long long int;
@@ -33,6 +33,8 @@ struct multi {
   ll first;
   ll second;
   ll third;
+  multi(ll first, ll second, ll third)
+      : first(first), second(second), third(third) {}
 };
 bool multicomp(const multi &a, const multi &b) {
   if (a.first == b.first)
