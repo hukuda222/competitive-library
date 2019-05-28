@@ -122,3 +122,16 @@ vector<string> split(const string &s, char delim) {
 // https://qiita.com/walk_to_work/items/378fd4d46d2067237c68
 REP(i, N) { *lower_bound(DP.begin(), DP.end(), D[i]) = D[i]; }
 cout << lower_bound(DP.begin(), DP.end(), llINF) - DP.begin() << endl;
+
+// NがでかいけどMOD使えない時用
+void comb_table(vvl &C, ll N) {
+  REP(i, N) {
+    REP(j, i + 1) {
+      if (j == 0 or j == i) {
+        C[i][j] = 1LL;
+      } else {
+        C[i][j] = (C[i - 1][j - 1] + C[i - 1][j]);
+      }
+    }
+  }
+}

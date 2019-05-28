@@ -20,6 +20,6 @@ template <typename T> struct BIT {
 
 //これで転倒数がわかる
 REP(j, a.size()) {
-  ans += j - f_tree.sum(a[j]);
+  ans += j - f_tree.query(a[j]);
   f_tree.add(a[j], 1);
 }
