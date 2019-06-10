@@ -35,6 +35,7 @@ void shortestPath(const Graph &g, ll s, vector<Weight> &dist,
     }
   }
 }
+
 vector<ll> buildPath(const vector<ll> &prev, ll t) {
   vector<ll> path;
   for (ll u = t; u >= 0; u = prev[u])

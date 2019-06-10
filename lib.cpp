@@ -14,8 +14,8 @@
 #include <vector>
 
 const int MOD = 1e9 + 7;
-const int iINF = 2147483647;
-const long long int llINF = 9223372036854775807;
+const int iINF = 2147483647 / 2;
+const long long int llINF = 9223372036854775807 / 2;
 
 using namespace std;
 using ll = long long int;

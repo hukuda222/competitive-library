@@ -77,7 +77,7 @@ ll GCD(ll a, ll b) {
 }
 
 // fはfactrial(事前に計算しておく)
-ll nCr(ll n, ll r) {
+ll nCr(vl &f, ll n, ll r) {
   if (n < r)
     return 0LL;
   if (r > n / 2LL)
@@ -135,3 +135,5 @@ void comb_table(vvl &C, ll N) {
     }
   }
 }
+
+ll MODDIV(ll a, ll b) { return a * MODPOW(b, MOD - 2) % MOD; }
