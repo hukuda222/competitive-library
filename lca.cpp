@@ -1,3 +1,14 @@
+typedef ll Weight;
+struct Edge {
+  ll src, dst;
+  Weight weight;
+  Edge(ll src, ll dst, Weight weight) : src(src), dst(dst), weight(weight) {}
+};
+typedef vector<Edge> Edges;
+typedef vector<Edges> Graph;
+typedef vector<Weight> Array;
+typedef vector<Array> Matrix;
+
 // GはGraphかvvlを想定している
 
 template <typename G> struct LCA {

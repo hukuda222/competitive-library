@@ -1,5 +1,5 @@
 // トポロジカルソート 根に近いほど小さい値になる
-
+// uが根
 void dfs(ll u, vvl &g, vl &ans, vector<bool> &used) {
   if (used[u])
     return;
