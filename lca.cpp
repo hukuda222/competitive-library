@@ -11,7 +11,7 @@ typedef vector<Array> Matrix;
 
 // GはGraphかvvlを想定している
 
-template <typename G> struct LCA {
+template <typename G> struct DoublingLowestCommonAncestor {
   const ll LOG;
   vector<ll> dep; // dep[j]=hは、j番目の要素の深さはh
   const G &g;

@@ -24,6 +24,7 @@ bool augment(const Graph &g, ll u, vector<ll> &matchTo, vector<bool> &visited) {
   }
   return false;
 }
+// matchingは結果が欲しい時だけ使えばいい
 ll bipartiteMatching(const Graph &g, ll L, Edges &matching) {
   const ll n = g.size();
   vector<ll> matchTo(n, -1);

@@ -34,24 +34,6 @@ map<ll, ll> prime_factor(ll n) {
   return ret;
 }
 
-//階乗
-ll factorial(ll n) {
-  ll ans = 1;
-  for (ll i = 2; i <= n; i++) {
-    ans *= i;
-    ans %= MOD;
-  }
-  return ans;
-}
-// 並べるやつ
-ll P(ll n, ll m) {
-  ll ans = 1;
-  for (ll i = m + 1; i <= n; i++) {
-    ans *= i;
-    ans %= MOD;
-  }
-  return ans;
-}
 // MODつきPOW
 ll MODPOW(ll n, ll m) {
   if (m == 0) {
@@ -63,16 +45,6 @@ ll MODPOW(ll n, ll m) {
     return (n * MODPOW(n, m - 1)) % MOD;
   }
 }
-
-// コンビネーション(コンビネーションをたくさん計算する時は下のを使う)
-ll C(ll n, ll m) {
-  if (m > n || n < 0 || m < 0)
-    return 0;
-  m = min(n - m, m);
-  return (P(n, m) * MODPOW(factorial(m), MOD - 2)) % MOD;
-}
-
-ll H(ll n, ll m) { return C(n + m - 1, m); }
 
 // a=a'c,b=b'cなので、LCM(a,b)=a*b/GCD(a,b)
 ll GCD(ll a, ll b) {
